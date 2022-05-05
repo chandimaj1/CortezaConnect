@@ -31,7 +31,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => 'grant_type=client_credentials&scope=profile%20api',
   CURLOPT_HTTPHEADER => array(
     'Authorization: Basic MjgxNjAzMjAyNDg5NTE2MDQ4Oms5WmRXbWRxN2E4MmlEWm5HNGhrbHZmVlRlT3hDcjl1S01QR1NBbnNVOFBqNHdNOEpFcDA5aE4xaUlpZWhIQTg=',
-    "Content-Type: application/x-www-form-urlencoded"
+    'Content-Type: application/x-www-form-urlencoded'
   ),
 ));
 

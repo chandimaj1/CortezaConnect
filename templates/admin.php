@@ -38,16 +38,8 @@ global $wpdb;
     <h4>CortezaConnect Settings</h4>
     <hr>
     <div id="settings_row">
-        <div class="row" id="settings_buttons_row">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <button class="btn btn-warning" id="reset_settings">Reset</button>
-                <button class="btn btn-success" id="update_settings">Update</button>
-            </div>
-        </div>
     <?php
 $table_name = $wpdb->prefix."CortezaConnect_settings";
-echo ($table_name);
 $sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";
 $result = $wpdb->get_results( $sql );
     
@@ -73,28 +65,13 @@ if($result){
     echo ('Error getting settings from database.');
 }
 ?>
-    </div> 
-</div>
-
-
-<div class="modal fade" id="ac_img_viewer" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <img src="" style="width:100%">
-      </div>
-      <div class="modal-footer">
-        <a href="" target="_blank"><button type="button" class="btn btn-primary">Full View</button></a>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
+    <div class="row" id="settings_buttons_row">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
+                <button class="btn btn-success" id="update_settings">Update</button>
+            </div>
+        </div> 
 </div>
 
 

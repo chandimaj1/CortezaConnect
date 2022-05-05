@@ -11,12 +11,16 @@ if (!isset($wpdb)){
 $sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";
 $result = $wpdb->get_results( $sql );
 
+var_dump($result);
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $result->cc_instance_url,
+  //CURLOPT_URL => $result->cc_instance_url,
+  CURLOPT_URL => "https://pyd-sandbox.staging.crust.tech",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_USERPWD => $result->cc_cc_user_id . ":" . $result->$cc_secret,
+  //CURLOPT_USERPWD => $result->cc_user_id . ":" . $result->$cc_secret,
+  CURLOPT_USERPWD => "281603202489516048:k9ZdWmdq7a82iDZnG4hklvfVTeOxCr9uKMPGSAnsU8Pj4wM8JEp09hN1iIiehHA8",
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 0,

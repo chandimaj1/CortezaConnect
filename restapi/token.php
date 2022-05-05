@@ -40,8 +40,6 @@ curl_setopt_array($curl, array(
 $msg = "Error getting token";
 $response = json_decode($response);
 
-var_dump ($response);
-
 if( isset($response->access_token) ){
     $msg = "token recieved.";
 

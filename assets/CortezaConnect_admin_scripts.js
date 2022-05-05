@@ -101,6 +101,8 @@
             if (response.status){
                 localStorage.setItem('cortezaconnect_token',response.token);
                 $('#settings_message').html('Settings validated!');
+            }else{
+                $('#settings_message').html('Settings not validated!. reason: '+response.msg);
             }
         },
         function(e){

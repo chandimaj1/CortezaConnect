@@ -29,7 +29,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => 'grant_type=client_credentials&scope=profile%20api',
   CURLOPT_HTTPHEADER => array(
-    "Authorization: Basic $basic_auth",
+    'Authorization: Basic '.$basic_auth,
     "Content-Type: application/x-www-form-urlencoded"
   ),
 ));

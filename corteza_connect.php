@@ -195,7 +195,7 @@ class CortezaConnect
     //Functions
 
     //Settings
-    function settings($result){ require_once plugin_dir_path( __FILE__ ) . 'restapi/settings.php'; }
+    function settings($params){ require_once plugin_dir_path( __FILE__ ) . 'restapi/settings.php'; }
     
 }
 

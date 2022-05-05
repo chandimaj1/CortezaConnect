@@ -9,7 +9,6 @@ if (!isset($wpdb)){
 
 //Incoming
 $data = $_POST;
-var_dump($result);
 //Responses
 $msg = 'Error! Unknown';
 $response = array();
@@ -34,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 //POST
 else if (
     $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = $params['JSON'];
     $data["id"]=1; //Set row id as 1
     $update_db = $wpdb->replace($table_name, $data);
     if($update_db){ 

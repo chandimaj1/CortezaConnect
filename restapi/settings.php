@@ -12,7 +12,7 @@ $data = $_POST;
 //Responses
 $msg = 'Error! Unknown';
 $response = array();
-var_dump ($params->POST);
+var_dump ($params->get_json_params());
 
 $table_name = $wpdb->prefix."CortezaConnect_settings";
 

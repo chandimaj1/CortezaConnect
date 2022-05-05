@@ -41,6 +41,8 @@
         $.ajax({     
             url: '/wp-json/corteza_connect/v1/settings/',
             method: "POST",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
             data: {
                 auth_token:'',
                 data: settings

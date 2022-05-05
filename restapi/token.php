@@ -8,6 +8,7 @@ if (!isset($wpdb)){
 
 
 //Getting settings from database
+$table_name = $wpdb->prefix."CortezaConnect_settings";
 $sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";
 $result = $wpdb->get_results( $sql );
 

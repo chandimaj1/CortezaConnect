@@ -19,7 +19,7 @@ echo ($basic_auth);
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://pyd-sandbox.staging.crust.tech/auth/oauth2/token',
+    CURLOPT_URL => $result->cc_instance_url,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,

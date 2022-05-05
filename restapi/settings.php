@@ -1,7 +1,7 @@
 <?php
 //Import wpdb from wordpress
 
-require_once('../../../wp-load.php');
+global $wpdb;
 if (!isset($wpdb)){
     $msg = 'Error loading wpdb';
     echo ($msg);

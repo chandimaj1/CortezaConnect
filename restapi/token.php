@@ -14,6 +14,7 @@ $result = $wpdb->get_results( $sql );
 $result = $result[0];
 
 $basic_auth = base64_encode($result->cc_user_id.":".$result->cc_secret);
+echo ($basic_auth);
 
 $curl = curl_init();
 
@@ -29,7 +30,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => 'grant_type=client_credentials&scope=profile%20api',
   CURLOPT_HTTPHEADER => array(
-    'Authorization: Basic '.$basic_auth,
+    'Authorization: Basic MjgxNjAzMjAyNDg5NTE2MDQ4Oms5WmRXbWRxN2E4MmlEWm5HNGhrbHZmVlRlT3hDcjl1S01QR1NBbnNVOFBqNHdNOEpFcDA5aE4xaUlpZWhIQTg=',
     "Content-Type: application/x-www-form-urlencoded"
   ),
 ));

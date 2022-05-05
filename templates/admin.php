@@ -47,7 +47,8 @@ global $wpdb;
         </div>
     <?php
 $table_name = $wpdb->prefix."CortezaConnect_settings";
-$sql = "SELECT DISTINCT * FROM $table_name id=1";
+echo ($table_name);
+$sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";
 $result = $wpdb->get_results( $sql );
     
 $msg = "fail";

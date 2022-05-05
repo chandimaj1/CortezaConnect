@@ -8,9 +8,8 @@ if (!isset($wpdb)){
 
 
 //Incoming
-$method = $_POST['method'];
-$data = $_POST['data'];
-
+$data = $_POST;
+var_dump($data);
 //Responses
 $msg = 'Error! Unknown';
 $response = array();

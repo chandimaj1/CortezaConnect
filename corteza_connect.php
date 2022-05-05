@@ -191,7 +191,7 @@ class CortezaConnect
         ));
 
         register_rest_route($namespace, 'token', array(
-            'methods'   => array('POST','GET'),
+            'methods'   => array('GET'),
             'callback'  => array($this,'token')
         ));
     }

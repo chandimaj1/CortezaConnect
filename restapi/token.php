@@ -45,8 +45,8 @@ var_dump ($response);
 if( isset($response->access_token) ){
     $msg = "token recieved.";
 
-    $params = $result;
-    $params["cc_token"] = $response;
+    $params = array();
+    $params["cc_token"] = $response->access_token;
     $params["id"] = 1;
 
     $update_db = $wpdb->replace($table_name, $params);

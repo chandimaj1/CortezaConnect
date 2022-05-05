@@ -43,14 +43,11 @@ $response = json_decode($response);
 if( isset($response->access_token) ){
     $msg = "token recieved.";
 
-    $params = array();
-    $params["cc_user_id"] = $result->cc_user_id;
-    $params["cc_secret"] = $result->cc_secret;
-    $params["cc_instance_url"] = $result->cc_instance_url;
-    $params["cc_token"] = $response->access_token;
-    $params["id"] = 1;
-var_dump($params);
-    $update_db = $wpdb->replace($table_name, $params);
+    $params = array(
+        "cc_token"=>$response->access_token
+    );
+   
+    $update_db = $wpdb->update($table_name, $params, array("id"=>1));
     if($update_db){ 
         $msg= "success";
     }else{

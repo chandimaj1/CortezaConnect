@@ -18,7 +18,7 @@ $basic_auth = base64_encode($result->cc_user_id.":".$result->cc_secret);
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $result->cc_instnace_url,
+  CURLOPT_URL => "$result->cc_instnace_url",
   
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',

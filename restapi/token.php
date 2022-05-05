@@ -46,6 +46,9 @@ if( isset($response->access_token) ){
     $msg = "token recieved.";
 
     $params = array();
+    $params["cc_user_id"] = $result->cc_user_id;
+    $params["cc_secret"] = $result->cc_secret;
+    $params["cc_instance_url"] = $result->cc_instance_url;
     $params["cc_token"] = $response->access_token;
     $params["id"] = 1;
 

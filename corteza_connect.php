@@ -189,6 +189,11 @@ class CortezaConnect
             'methods'   => array('POST','GET'),
             'callback'  => array($this,'settings')
         ));
+
+        register_rest_route($namespace, 'token', array(
+            'methods'   => array('POST','GET'),
+            'callback'  => array($this,'token')
+        ));
     }
 
 
@@ -196,6 +201,8 @@ class CortezaConnect
 
     //Settings
     function settings($params){ require_once plugin_dir_path( __FILE__ ) . 'restapi/settings.php'; }
+    //Token
+    function token($params){ require_once plugin_dir_path( __FILE__ ) . 'restapi/token.php'; }
     
 }
 

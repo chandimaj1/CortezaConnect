@@ -9,7 +9,7 @@ if (!isset($wpdb)){
 
 //Incoming
 $data = $_POST;
-var_dump($_POST["data"]);
+var_dump($result);
 //Responses
 $msg = 'Error! Unknown';
 $response = array();

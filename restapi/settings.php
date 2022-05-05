@@ -12,7 +12,7 @@ $data = $_POST;
 //Responses
 $msg = 'Error! Unknown';
 $response = array();
-var_dump ($params->get_json_params());
+$params = $params->get_json_params();
 
 $table_name = $wpdb->prefix."CortezaConnect_settings";
 
@@ -34,9 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 //POST
 else if (
     $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = $params['JSON'];
-    $data["id"]=1; //Set row id as 1
-    $update_db = $wpdb->replace($table_name, $data);
+    $params["id"]=1; //Set row id as 1
+    $update_db = $wpdb->replace($table_name, $params);
     if($update_db){ 
         $msg= "success";
     }else{

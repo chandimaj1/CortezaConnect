@@ -46,7 +46,7 @@ global $wpdb;
             </div>
         </div>
     <?php
-$table_name = $wpdb->prefix."cortezaconnect_settings";
+$table_name = $wpdb->prefix."CortezaConnect_settings";
 $sql = "SELECT DISTINCT * FROM $table_name id=1";
 $result = $wpdb->get_results( $sql );
     
@@ -65,52 +65,6 @@ if($result){
             </div>
         </div>
 
-<?php
-        }
-    }
-}else{
-    echo ('Error getting settings from database.');
-}
-?>
-    </div> 
-</div>
-
-
-
-<!--
-    Theme Settings
--->
-
-<div class="container-fluid stripe" style="margin-top:50px">
-    <h4>Theme Settings</h4>
-    <hr>
-    <div id="themes_row">
-        <div class="row" id="settings_buttons_row">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <button class="btn btn-warning" id="reset_theme_settings">Reset</button>
-                <button class="btn btn-success" id="update_theme_settings">Update</button>
-            </div>
-        </div>
-    <?php
-$table_name = $wpdb->prefix."cortezaconnect_settings";
-$sql = "SELECT DISTINCT * FROM $table_name";
-$result = $wpdb->get_results( $sql );
-    
-$msg = "fail";
-
-if($result){
-    $tabs = '';
-    foreach ($result[0] as $key=>$row){
-
-        if ($key != 'id'){
-?>
-        <div class="row themes_set_row">
-            <div class="col-sm-4"><?= $key ?></div>
-            <div class="col-sm-8">
-                <input type="text" class="themes_row_set form-control" id="themes_<?= $key ?>"  value="<?= $row ?>" />
-            </div>
-        </div>
 <?php
         }
     }

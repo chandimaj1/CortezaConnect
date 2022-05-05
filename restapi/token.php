@@ -47,7 +47,9 @@ if( isset($response->access_token) ){
         "cc_token"=>$response->access_token
     );
    
-    global $wpdb;
+    echo (isset($wpdb));
+    echo ($table_name);
+    
     $update_db = $wpdb->update($table_name, $params, array("id"=>1));
     if($update_db){ 
         $msg= "success";

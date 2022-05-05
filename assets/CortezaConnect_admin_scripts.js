@@ -43,10 +43,10 @@
             method: "POST",
             dataType : "json",
             contentType: "application/json; charset=utf-8",
-            data: {
+            data: JSON.stringify({
                 auth_token:'',
                 data: settings
-            },
+            }),
             success: function(response)
             { 
                 resolve(response);

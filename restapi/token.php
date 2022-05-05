@@ -11,9 +11,10 @@ if (!isset($wpdb)){
 $table_name = $wpdb->prefix."CortezaConnect_settings";
 $sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";
 $result = $wpdb->get_results( $sql );
-//$result = $result[0];
+$result = $result[0];
 
-var_dump($result[0]->cc_user_id);
+$basic_auth = base64_encode($result->cc_user_id.":".$result->cc_secret);
+echo($basic_auth);
 
 $curl = curl_init();
 

@@ -21,7 +21,7 @@ $instance = $result->cc_instance_url;
 var_dump($instance);
 
 curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://pyd-sandbox.staging.crust.tech',
+    CURLOPT_URL => $instance.'/auth/oauth2/token',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,

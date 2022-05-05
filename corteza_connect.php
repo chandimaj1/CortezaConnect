@@ -53,15 +53,21 @@ class CortezaConnect
     }
 
     function register(){
+        //Shortcode
         add_shortcode( 'CortezaConnect', array($this, 'shortcode_frontend') );
 
+        //Enqueue Scripts
         add_action( 'admin_enqueue_scripts', array($this, 'enqueue_admin') );
         add_action( 'wp_enqueue_scripts', array($this, 'enqueue') );
 
+        //Admin pages
         add_action ( 'admin_menu', array( $this, 'add_admin_pages' ));
         add_filter ("plugin_action_links_$this->plugin_name", array ($this, 'settings_link'));
 
        // add_filter( 'single_template', array($this, 'load_custom_post_specific_template'));
+
+       //Rest Endpoints
+       add_action('rest_api_init', array($this, 'at_rest_init') );
     }
 
 
@@ -162,16 +168,33 @@ class CortezaConnect
     function shortcode_frontend($atts){
         include 'templates/CortezaConnect_shortcode.php';
     }
+
+
+    //Rest endpoints
+    function at_rest_init()
+    {
+        // route url: domain.com/wp-json/$namespace/$route
+        $namespace = 'api-test/v1';
+
+        register_rest_route($namespace, 'test', array(
+            'methods'   => WP_REST_Server::READABLE,
+            'callback'  => 'at_rest_testing_endpoint'
+        ));
+    }
+
+    function at_rest_testing_endpoint(){
+        echo 'test';
+    }
     
 }
 
 if ( class_exists('CortezaConnect') ){
-    $flight_book = new CortezaConnect();
-    $flight_book -> register();
+    $corteza_connect = new CortezaConnect();
+    $corteza_connect -> register();
 }
 
 //activate
-register_activation_hook (__FILE__, array($flight_book, 'activate'));
+register_activation_hook (__FILE__, array($corteza_connect, 'activate'));
 
 //deactivation
-register_deactivation_hook (__FILE__, array($flight_book, 'deactivate'));
+register_deactivation_hook (__FILE__, array($corteza_connect, 'deactivate'));

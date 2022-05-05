@@ -12,6 +12,8 @@ $data = $_POST;
 //Responses
 $msg = 'Error! Unknown';
 $response = array();
+$params = $params->JSON;
+echo ($params);
 
 $table_name = $wpdb->prefix."CortezaConnect_settings";
 

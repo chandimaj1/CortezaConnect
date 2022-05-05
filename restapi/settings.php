@@ -16,13 +16,6 @@ $params = $params->get_json_params();
 
 $table_name = $wpdb->prefix."CortezaConnect_settings";
 
-//Method Selection
-switch ($method){
-    case 'verify':
-        verify_settings($data);
-        break;
-}
-
 //GET
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";

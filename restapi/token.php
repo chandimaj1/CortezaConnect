@@ -17,7 +17,6 @@ $basic_auth = "Authorization: Basic ".base64_encode($result->cc_user_id.":".$res
 
 $curl = curl_init();
 $instance = $result->cc_instance_url;
-var_dump($basic_auth);
 
 curl_setopt_array($curl, array(
     CURLOPT_URL => $instance.'/auth/oauth2/token',
@@ -36,6 +35,31 @@ curl_setopt_array($curl, array(
   ));
   
   $response = curl_exec($curl);
-  
   curl_close($curl);
-  echo $response;
+
+$msg = "Error getting token";
+$response = json_decode($response);
+
+var_dump ($response);
+
+if( isset($response->access_token) ){
+    $msg = "token recieved.";
+
+    $params = $result;
+    $params["cc_token"] = $response;
+    $params["id"] = 1;
+
+    $update_db = $wpdb->replace($table_name, $params);
+    if($update_db){ 
+        $msg= "success";
+    }else{
+        $msg.="token update failed";
+    }
+}
+
+$send = array(
+    "msg" => $msg,
+    "token" => $response->access_token
+);
+
+echo (json_encode($send));

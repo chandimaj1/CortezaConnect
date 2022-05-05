@@ -39,17 +39,15 @@ curl_setopt_array($curl, array(
 
 $msg = "Error getting token";
 $response = json_decode($response);
+$token = $response->access_token;
 
 if( isset($response->access_token) ){
     $msg = "token recieved.";
 
     $params = array(
-        "cc_token"=>$response->access_token
+        "cc_token" => $token
     );
-   
-    echo (isset($wpdb));
-    echo ($table_name);
-    
+
     $update_db = $wpdb->update($table_name, $params, array("id"=>1));
     if($update_db){ 
         $msg= "success";
@@ -62,7 +60,7 @@ if( isset($response->access_token) ){
 
 $send = array(
     "msg" => $msg,
-    "token" => $response->access_token
+    "token" => $token
 );
 
 echo (json_encode($send));

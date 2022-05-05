@@ -178,7 +178,7 @@ class CortezaConnect
 
         register_rest_route($namespace, 'test', array(
             'methods'   => WP_REST_Server::READABLE,
-            'callback'  => 'at_rest_testing_endpoint'
+            'callback'  => array($this,'at_rest_testing_endpoint')
         ));
     }
 

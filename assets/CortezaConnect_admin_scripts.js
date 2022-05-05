@@ -1,7 +1,4 @@
 (function($) {
-
-    var ajax_url = '/wp-content/plugins/cortezaconnect/ajax_php/';
-    
     /**
      * 
      * Execute functions on DOM ready
@@ -34,11 +31,10 @@
         //Verify pluggin settings
         let verify_settings = new Promise(function(verify_settings_resolve, verify_settings_reject) {
             $.ajax({     
-                url: ajax_url + 'settings.php',
-                method: "POST",
+                url: '/wp-json/corteza_connect/v1/token/',
+                method: "GET",
                 data: {
-                    method:'verify_settings',
-                    data:settings
+                    auth_token:'',
                 },
                 success: function(response)
                 { 

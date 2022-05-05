@@ -21,7 +21,7 @@ $instance = $result->cc_instance_url;
 var_dump($instance);
 
 curl_setopt_array($curl, array(
-    CURLOPT_URL => $instance,
+    CURLOPT_URL => "$instance",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,

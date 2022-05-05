@@ -44,7 +44,7 @@ $token = $response->access_token;
 if( isset($response->access_token) ){
     $msg = "token recieved.";
 
-    $update_db = $wpdb->update($table_name, array("cc_token" => "fsdf fsd"), array("id"=>1));
+    $update_db = $wpdb->update($table_name, array("cc_token" => "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6IjI4MTYwMzIwMjQ4OTUxNjA0OCIsImV4cCI6MTY1NDMzNzAyNSwiaWF0IjoxNjUxNzQ1MDI1LCJpc3MiOiJjb3J0ZXphcHJvamVjdC5vcmciLCJqdGkiOiJOREMxWk1GSVpHRVRPREhNT0MwWk1HRk1MVEdXWkdRVFkyUTRNVEFaT1dZMU1EQVkiLCJyb2xlcyI6WyIyNjA1NjgwMjM4MDk2NTQ3ODciXSwic2NvcGUiOiJwcm9maWxlIGFwaSIsInN1YiI6IjI2MDk4ODM5MDc5NzczNzk4NyJ9.Yb8515Ssk4-zu9Y_F_4qWwG70ueNpOLgsuw7HLCdjIbo-HVpFBw1V7C4MjbjNsQTHBKcqMWvb9NaZiFk5CJfQA"), array("id"=>1));
     if($update_db){ 
         $msg.= "Token updated!.";
     }else{

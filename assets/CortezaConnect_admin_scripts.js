@@ -7,6 +7,11 @@
     $(document).ready(function() {
         console.log('CortezaConnect AdminJS - Scripts Ready...');
         
+        $('form button').on("click",function(e){
+            e.preventDefault();
+        });
+
+        
         //UI functions
         plugin_settings(); // Plugin settings
     })
@@ -59,8 +64,6 @@
         );
         
     });
-
-    return false;
  }
 
 

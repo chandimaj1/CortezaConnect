@@ -24,49 +24,9 @@
  function plugin_settings(){
     $('#update_settings').on('click', function(){
         console.log('updating settings...');
-        verify_settings();
+        update_settings();
     });
  }
-
-
- //Verify pluggin settings
- function verify_settings(){
-    let verify_settings = new Promise(function(verify_settings_resolve, verify_settings_reject) {
-        $.ajax({     
-            url: '/wp-json/corteza_connect/v1/token/',
-            method: "GET",
-            data: {
-                auth_token:'',
-            },
-            success: function(response)
-            { 
-                verify_settings_resolve(response);
-            },
-    
-            error: function(e)
-            {
-                verify_settings_reject(e);
-            }
-        });
-    });
-    verify_settings.then(
-        function(response){
-            console.log(response);
-            if (response.status){
-                localStorage.setItem('cortezaconnect_token',response.token);
-                $('#settings_message').html('Settings validated!');
-                
-                update_settings(); //Update if settings verified!
-            }
-        },
-        function(e){
-            console.log('Error');
-            console.log(e);
-            $('#settings_message').html('Validation failed!');
-        }
-    );
- }
-
 
  //Update settings
  function update_settings(){
@@ -102,6 +62,7 @@
             console.log(response);
             if (response.status){
                 $('#settings_message').html('Settings Saved!');
+                validate_settings();
             }
         },
 
@@ -110,6 +71,46 @@
         }
     );
 }
+
+
+ //validate settings
+ function validate_settings(){
+    let verify_settings = new Promise(function(resolve, reject) {
+        $.ajax({     
+            url: '/wp-json/corteza_connect/v1/token/',
+            method: "GET",
+            data: {
+                auth_token:'',
+            },
+            success: function(response)
+            { 
+                resolve(response);
+            },
+    
+            error: function(e)
+            {
+                reject(e);
+            }
+        });
+    });
+    verify_settings.then(
+        function(response){
+            console.log(response);
+            if (response.status){
+                localStorage.setItem('cortezaconnect_token',response.token);
+                $('#settings_message').html('Settings validated!');
+            }
+        },
+        function(e){
+            console.log('Error');
+            console.log(e);
+            $('#settings_message').html('Settings Validation failed!');
+        }
+    );
+ }
+
+
+ 
 
 
  

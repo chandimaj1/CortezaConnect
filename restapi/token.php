@@ -13,7 +13,7 @@ $sql = "SELECT DISTINCT * FROM $table_name WHERE id=1";
 $result = $wpdb->get_results( $sql );
 //$result = $result[0];
 
-var_dump($result->cc_user_id);
+var_dump($result[0]->cc_user_id);
 
 $curl = curl_init();
 

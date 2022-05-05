@@ -36,9 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 //POST
 else if (
-    $_SERVER['REQUEST_METHOD'] === 'POST' 
-    && isset($data) && !empty($data)
-    ) {
+    $_SERVER['REQUEST_METHOD'] === 'POST') {
     $data["id"]=1; //Set row id as 1
     $update_db = $wpdb->replace($table_name, $data);
     if($update_db){ 

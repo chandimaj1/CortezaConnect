@@ -51,6 +51,7 @@
     });
     verify_settings.then(
         function(response){
+            console.log(response);
             if (response.status){
                 localStorage.setItem('cortezaconnect_token',response.token);
                 $('#settings_message').html('Settings validated!');

@@ -144,8 +144,8 @@ class CortezaConnect
 
         if (strpos($hook_suffix, 'CortezaConnect_settings') !== false) {
             //Bootstrap
-            wp_enqueue_style( 'bootstrap4_styles', plugins_url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',__FILE__));
-            wp_enqueue_script( 'bootstrap4_scripts', plugins_url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',__FILE__), array('jquery'));
+            wp_enqueue_style( 'bootstrap4_styles', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+            wp_enqueue_script( 'bootstrap4_scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', array('jquery'));
            
             //Admin scripts and styles
             wp_enqueue_style( 'CortezaConnect_admin_styles', plugins_url('/assets/CortezaConnect_admin_style.css',__FILE__));

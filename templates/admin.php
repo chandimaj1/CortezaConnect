@@ -93,7 +93,7 @@ if($result){
             </div>
         </div>
     <?php
-$table_name = $wpdb->prefix."flightbook_theme";
+$table_name = $wpdb->prefix."cortezaconnect_settings";
 $sql = "SELECT DISTINCT * FROM $table_name";
 $result = $wpdb->get_results( $sql );
     

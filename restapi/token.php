@@ -44,7 +44,7 @@ $token = $response->access_token;
 if( isset($response->access_token) ){
     $msg = "token recieved.";
 
-    $update_db = $wpdb->update($table_name, array("cc_token" => "$token"), array("id"=>1));
+    $update_db = $wpdb->update($table_name, array("cc_token" => "fff d"), array("id"=>1));
     if($update_db){ 
         $msg.= "Token updated!.";
     }else{

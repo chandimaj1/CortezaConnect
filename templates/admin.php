@@ -69,7 +69,7 @@ if($result){
     <div class="row" id="settings_buttons_row">
             <div class="col-md-9"></div>
             <div class="col-md-3">
-                <button class="btn btn-success" id="update_settings">Update</button>
+                <button class="btn btn-success" id="update_settings">Verify & Update</button>
             </div>
         </div> 
 </div>

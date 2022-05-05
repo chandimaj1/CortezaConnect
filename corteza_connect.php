@@ -134,7 +134,7 @@ class CortezaConnect
             require_once(ABSPATH.'wp-admin/includes/upgrade.php');
             dbDelta($sql);
             dbDelta($sql_insert);
-            add_option("CortezaConnect_aircrafts_db", "1.0");
+            add_option("CortezaConnect_settings_db", "1.0");
         }
 
     }

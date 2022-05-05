@@ -59,7 +59,7 @@ function save_settings($data){
 //Send results
 $send = array(
     "msg"=>"$msg",
-    "response"=>"$response"
+    "response"=>$response
 );
 
 $send = json_encode($send);

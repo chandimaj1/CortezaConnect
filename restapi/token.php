@@ -46,12 +46,12 @@ if( isset($response->access_token) ){
 
     $update_db = $wpdb->update($table_name, array("cc_token" => "$token"), array("id"=>1));
     if($update_db){ 
-        $msg= "success";
+        $msg.= "Token updated!.";
     }else{
-        $msg.="token update failed";
+        $msg.="token update failed.";
     }
 }else{
-    $msg = "Token not recieved";
+    $msg = "Token not recieved.";
 }
 
 $send = array(

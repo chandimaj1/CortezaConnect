@@ -14,7 +14,6 @@ $result = $wpdb->get_results( $sql );
 $result = $result[0];
 
 $basic_auth = "Authorization: Basic ".base64_encode($result->cc_user_id.":".$result->cc_secret);
-echo ($basic_auth);
 
 $curl = curl_init();
 $instance = $result->cc_instance_url;
@@ -39,6 +38,4 @@ curl_setopt_array($curl, array(
   $response = curl_exec($curl);
   
   curl_close($curl);
-  echo $response;
-
-var_dump ($response);
+  echo ( json_encode($response) );

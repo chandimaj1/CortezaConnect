@@ -38,6 +38,7 @@ curl_setopt_array($curl, array(
   curl_close($curl);
 
 $msg = "Error getting token";
+$status = true;
 $response = json_decode($response);
 $token = $response->access_token;
 
@@ -49,15 +50,18 @@ if( isset($response->access_token) ){
         $msg.= "Token updated!.";
     }else{
         $msg.="token update failed.";
+        $status = false;
     }
 }else{
     $msg = "Token not recieved.";
+    $status = false;
 }
 
 $send = array(
     "msg" => $msg,
     "token" => $token,
-    "table" => $table_name
+    "table" => $table_name,
+    "status" => $status
 );
 
 echo (json_encode($send)); 

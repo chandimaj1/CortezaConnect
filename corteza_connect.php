@@ -34,6 +34,7 @@ if (! defined( 'ABSPATH') ){
     die;
 }
 
+
 class CortezaConnect
 {
 
@@ -170,21 +171,31 @@ class CortezaConnect
     }
 
 
+
+
+
+
+
+
+
+    
     //Rest endpoints
     function at_rest_init()
     {
         // route url: domain.com/wp-json/$namespace/$route
-        $namespace = 'api-test/v1';
+        $namespace = 'corteza_connect/v1';
 
-        register_rest_route($namespace, 'test', array(
+        register_rest_route($namespace, 'settings', array(
             'methods'   => WP_REST_Server::READABLE,
-            'callback'  => array($this,'at_rest_testing_endpoint')
+            'callback'  => array($this,'settings')
         ));
     }
 
-    function at_rest_testing_endpoint(){
-        echo 'test';
-    }
+
+    //Functions
+
+    //Settings
+    function settings(){ require_once plugin_dir_path( __FILE__ ) . 'restapi/settings.php'; }
     
 }
 

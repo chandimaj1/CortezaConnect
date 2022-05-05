@@ -55,7 +55,7 @@
             if (response.status){
                 localStorage.setItem('cortezaconnect_token',response.token);
                 $('#settings_message').html('Settings validated!');
-                update_settings(settings);
+                update_settings();
             }
         },
         function(e){
@@ -76,7 +76,7 @@
         cc_token:$('#settings_cc_token').val(),
     }
 
-    let update_settings = new Promise(function(update_settings_resolve, update_settings_reject) {
+    let update_settings = new Promise(function(resolve, reject) {
         $.ajax({     
             url: '/wp-json/corteza_connect/v1/settings/',
             method: "POST",
@@ -86,18 +86,19 @@
             },
             success: function(response)
             { 
-                verify_settings_resolve(response);
+                resolve(response);
             },
     
             error: function(e)
             {
-                verify_settings_reject(e);
+                reject(e);
             }
         });
     });
 
     update_settings.then(
         function(response){
+            console.log(response);
             $('#settings_message').html('Validation failed!');
         },
 

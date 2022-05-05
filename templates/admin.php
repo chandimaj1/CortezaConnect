@@ -3,6 +3,25 @@ if (! defined( 'ABSPATH') ){
     die;
 }
 
+//Rest endpoints
+function at_rest_initx()
+{
+    // route url: domain.com/wp-json/$namespace/$route
+    $namespace = 'api-test/v3';
+
+    register_rest_route($namespace, 'testx', array(
+        'methods'   => WP_REST_Server::READABLE,
+        'callback'  => 'at_rest_testing_endpoint'
+    ));
+}
+
+function at_rest_testing_endpoint(){
+    echo 'test';
+}
+
+add_action('rest_api_init', array($this, 'at_rest_initx') );
+
+
 //setting script variables
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
 $site_host = "https://";   

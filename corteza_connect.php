@@ -186,7 +186,7 @@ class CortezaConnect
         $namespace = 'corteza_connect/v1';
 
         register_rest_route($namespace, 'settings', array(
-            'methods'   => WP_REST_Server::READABLE,
+            'methods'   => 'POST',
             'callback'  => array($this,'settings')
         ));
     }

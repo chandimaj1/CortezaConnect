@@ -49,13 +49,15 @@ if( isset($response->access_token) ){
     $params["cc_instance_url"] = $result->cc_instance_url;
     $params["cc_token"] = $response->access_token;
     $params["id"] = 1;
-
+var_dump($params);
     $update_db = $wpdb->replace($table_name, $params);
     if($update_db){ 
         $msg= "success";
     }else{
         $msg.="token update failed";
     }
+}else{
+    $msg = "Token not recieved";
 }
 
 $send = array(

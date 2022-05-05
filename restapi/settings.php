@@ -11,8 +11,6 @@ if (!isset($wpdb)){
 $method = $_POST['method'];
 $data = $_POST['data'];
 
-var_dump($_POST);
-
 //Responses
 $msg = 'Error! Unknown';
 $response = array();
@@ -44,13 +42,6 @@ else if (
     }else{
         $msg="failed";
     }
-}
-
-
-
-//Save Settings
-function save_settings($data){
-    
 }
 
 

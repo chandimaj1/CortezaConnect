@@ -132,7 +132,7 @@ class CortezaConnect
             cc_instance_url VARCHAR(50),
             cc_user_id VARCHAR(50),
             cc_secret VARCHAR(100),
-            cc_token VARCHAR(100),
+            cc_token TEXT(1000),
             PRIMARY KEY  (id))";
 
             $sql_insert = "INSERT INTO $table_name (id, cc_instance_url, cc_user_id, cc_secret, cc_token) VALUES

@@ -48,7 +48,6 @@ else if (
 $send = array(
     "msg"=>"$msg",
     "response"=>$response,
-    "data"=>$data,
     "status"=>$status
 );
 

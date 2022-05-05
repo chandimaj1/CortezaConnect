@@ -11,10 +11,10 @@
             e.preventDefault();
         });
 
-        
-        //UI functions
         plugin_settings(); // Plugin settings
     })
+
+
 
 /**
  * 
@@ -24,13 +24,13 @@
  function plugin_settings(){
     $('#update_settings').on('click', function(){
         console.log('updating settings...');
-        verify_and_update_settings();
+        verify_settings();
     });
  }
 
 
- function verify_and_update_settings(){
-    //Verify pluggin settings
+ //Verify pluggin settings
+ function verify_settings(){
     let verify_settings = new Promise(function(verify_settings_resolve, verify_settings_reject) {
         $.ajax({     
             url: '/wp-json/corteza_connect/v1/token/',
@@ -55,13 +55,14 @@
             if (response.status){
                 localStorage.setItem('cortezaconnect_token',response.token);
                 $('#settings_message').html('Settings validated!');
-                update_settings();
+                
+                update_settings(); //Update if settings verified!
             }
         },
         function(e){
             console.log('Error');
             console.log(e);
-            $('#settings_message').html('Settings validation failed!');
+            $('#settings_message').html('Validation failed!');
         }
     );
  }
@@ -73,7 +74,7 @@
         cc_instance_url:$('#settings_cc_instance_url').val(),
         cc_user_id:$('#settings_cc_user_id').val(),
         cc_secret:$('#settings_cc_secret').val(),
-        cc_token:$('#settings_cc_token').val(),
+        cc_token:localStorage.getItem('cortezaconnect_token'),
     }
 
     let update_settings = new Promise(function(resolve, reject) {
@@ -99,11 +100,13 @@
     update_settings.then(
         function(response){
             console.log(response);
-            $('#settings_message').html('Validation failed!');
+            if (response.status){
+                $('#settings_message').html('Settings Saved!');
+            }
         },
 
         function(e){
-            $('#settings_message').html('Update failed!');
+            $('#settings_message').html('Update failed!. reson: \n'+e);
         }
     );
 }

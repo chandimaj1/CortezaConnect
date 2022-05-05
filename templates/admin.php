@@ -55,7 +55,7 @@ global $wpdb;
                 $tabs = '';
                 foreach ($result[0] as $key=>$row){
 
-                    if ($key != 'id'){
+                    if ($key!='id' && $key!='cc_token'){ //Hiding id and token
             ?>
             <div class="row settings_set_row">
                 <div class="col-sm-4"><?= $key ?></div>
@@ -78,7 +78,7 @@ global $wpdb;
                 <span id="settings_message"></span>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-success" id="update_settings">Verify & Update</button>
+                <button class="btn btn-success" id="update_settings">Update</button>
             </div>
         </div> 
     </form>

@@ -9,7 +9,7 @@ if (!isset($wpdb)){
 
 //Incoming
 $params = $params->get_json_params();
-$data = $params->data;
+$data = $params["data"];
 //Responses
 $msg = 'Error! Unknown';
 $response = array();

@@ -175,8 +175,20 @@ function refresh_selection(){
             $('#cc_select_namespace')
             .html('')
             .append(x);
+            
+            set_modules();
+        }else{
+            $('#cc_select_namespace')
+            .html('<option value="false" selected>Namespaces not found!</option>');
         }
     }
+
+        //Set modules
+        function set_modules(){
+            $('#cc_select_namespace').off().on('change', function (){
+                console.log($(this).val());
+            });
+        }
 
  
     

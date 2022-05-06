@@ -86,7 +86,10 @@ global $wpdb;
 
 
 <div class="container-fluid stripe" style="margin-top:50px">
-    <h4>Shortcode Selection</h4>
+    <h4>Shortcode Selection
+
+        <button class="btn btn-success" id="refresh_selection">Refresh</button>
+    </h4>
     <hr>
     <form action="" method="post" name="pluggin_settings_form">
         <div id="settings_row">
@@ -99,7 +102,6 @@ global $wpdb;
 
             <select id="cc_select_namespace" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected value="false" >Select Namespace</option>
-                <button class="btn btn-success" id="refresh_selection">Refresh</button>
             </select>
             <select id="cc_select_module" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected value="false" >Select Module</option>

@@ -10,8 +10,6 @@ if (!isset($wpdb)){
 $params = $params->get_json_params();
 $data = $params["data"];
 
-var_dump($data);
-
 $endpoint = $data["endpoint"];
 $method = $data["method"];
 $data = $data["data"];

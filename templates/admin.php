@@ -99,6 +99,7 @@ global $wpdb;
 
             <select id="cc_select_namespace" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected value="false" >Select Namespace</option>
+                <button class="btn btn-success" id="refresh_selection">Refresh</button>
             </select>
             <select id="cc_select_module" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected value="false" >Select Module</option>

@@ -90,11 +90,18 @@ global $wpdb;
     <hr>
     <form action="" method="post" name="pluggin_settings_form">
         <div id="settings_row">
+
+        <div class="mb-3">
+            <label for="cc_shortcode_text" class="form-label">Shortcode Label</label>
+            <input type="text" class="form-control" id="cc_shortcode_text" placeholder="">
+        </div>
+            
+
             <select id="cc_select_namespace" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Loading...</option>
+                <option selected value="false" >Select Namespace</option>
             </select>
             <select id="cc_select_module" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Loading...</option>
+                <option selected value="false" >Select Module</option>
             </select>
             <select id="cc_select_type" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option value="Show Information">Show information</option>
@@ -107,7 +114,7 @@ global $wpdb;
                 <span id="settings_message"></span>
             </div>
             <div class="col-md-3">
-            <button class="btn btn-success" id="refresh_selection">Refresh</button>
+                <button class="btn btn-success" id="refresh_selection">Refresh</button>
                 <button class="btn btn-success" id="save_selection">Save</button>
             </div>
         </div> 

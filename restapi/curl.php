@@ -23,7 +23,9 @@ $result = $wpdb->get_results( $sql );
 $result = $result[0];
 
 $instance = $result->cc_instance_url;
-$basic_auth = 'Authorization: Bearer '.$token;
+$basic_auth = 'Authorization: Bearer '.$result->cc_instance_url;
+
+echo ($basic_auth);
 
 $curl = curl_init();
 

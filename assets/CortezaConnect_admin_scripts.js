@@ -132,10 +132,14 @@ function refresh_selection(){
         $.ajax({     
             url: '/wp-json/corteza_connect/v1/curl/',
             method: "POST",
-            data: {
-                method: "GET",
-                endpoint: "/api/compose/namespace/"
-            },
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                data:{
+                    method: "GET",
+                    endpoint: "/api/compose/namespace/"
+                }
+            }),
             success: function(response)
             { 
                 resolve(response);

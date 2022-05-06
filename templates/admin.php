@@ -115,7 +115,6 @@ global $wpdb;
                 <span id="settings_message"></span>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-success" id="refresh_selection">Refresh</button>
                 <button class="btn btn-success" id="save_selection">Save</button>
             </div>
         </div> 

@@ -13,6 +13,7 @@
 
         plugin_settings(); // Plugin settings
         refresh_selection(); // Refresh Shortcode selection
+        add_shortcodes(); // Add shortcodes
     })
 
 
@@ -245,6 +246,24 @@ function add_modules_to_select(modules){
         .html('<option value="false" >Select Module</option>')
         $('#shortcode_message').html('Modules not found!');
     }
+}
+
+
+
+/**
+ * 
+ * Add Shortcodes
+ */
+
+function add_shortcodes(){
+    $('#add_shortcode').on('click', function(){
+        console.log('Adding shortcode...');
+
+        let shortcode_info = {
+            label
+        }
+        add_shortcode();
+    });
 }
  
     

@@ -124,7 +124,7 @@ class CortezaConnect
         // create table if not exist
         global $wpdb;
 
-        // aircrafts
+        // Settings
         $table_name = $wpdb->prefix."CortezaConnect_settings";
         if ($wpdb->get_var('SHOW TABLES LIKE '.$table_name) != $table_name) {
             $sql = 'CREATE TABLE '.$table_name."(
@@ -142,6 +142,27 @@ class CortezaConnect
             dbDelta($sql);
             dbDelta($sql_insert);
             add_option("CortezaConnect_settings_db", "1.0");
+        }
+
+
+        // Shortcodes
+        $table_name = $wpdb->prefix."CortezaConnect_shortcodes";
+        if ($wpdb->get_var('SHOW TABLES LIKE '.$table_name) != $table_name) {
+            $sql = 'CREATE TABLE '.$table_name."(
+            id INTEGER NOT NULL AUTO_INCREMENT,
+            cc_shortcode_label VARCHAR(50),
+            cc_namespace_id VARCHAR(100),
+            cc_module_id VARCHAR(100),
+            cc_type VARCHAR(40),
+            PRIMARY KEY  (id))";
+
+            $sql_insert = "INSERT INTO $table_name (id, cc_shortcode_label, cc_namespace_id, cc_module_id, cc_type) VALUES
+            (1, 'CortezaConnect', '261135111141982211', '278392675328065552', 'ShowInfo');";
+
+            require_once(ABSPATH.'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
+            dbDelta($sql_insert);
+            add_option("CortezaConnect_shortcode_db", "1.0");
         }
 
     }

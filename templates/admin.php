@@ -86,7 +86,7 @@ global $wpdb;
 
 
 <div class="container-fluid stripe" style="margin-top:50px">
-    <h4>Shortcode Selection
+    <h4>Shortcode Config
 
         <button class="btn btn-success" id="refresh_selection">Refresh</button>
     </h4>
@@ -107,8 +107,8 @@ global $wpdb;
                 <option selected value="false" >Select Module</option>
             </select>
             <select id="cc_select_type" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option value="Show Information">Show information</option>
-                <option value="Collect Information">Collect information</option>
+                <option value="ShowInfo">Show information</option>
+                <option value="CollectInfo">Collect information</option>
             </select>
         </div>
 
@@ -117,7 +117,7 @@ global $wpdb;
                 <span id="shortcode_message"></span>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-success" id="save_selection">Save</button>
+                <button class="btn btn-success" id="add_shortcode">Add</button>
             </div>
         </div> 
     </form>

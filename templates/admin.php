@@ -131,7 +131,10 @@ global $wpdb;
     <hr>
     <form action="" method="post" name="pluggin_settings_form">
         <div id="settings_row" id="preview_placeholder">
-
+            <table>
+                <thead></thead>
+                <tbody id="tboxyz"></tbody>
+            </table>
         </div>
     </form>
 </div>

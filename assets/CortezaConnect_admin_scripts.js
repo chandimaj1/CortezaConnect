@@ -327,7 +327,7 @@ function get_records(){
         fetch_records.then(
             function(response){
                 console.log(response);
-                //preview_records(response.response.response.set);
+                preview_records(response.response.response.set);
             },
             function(e){
                 console.log('Error');
@@ -335,6 +335,25 @@ function get_records(){
                 $('#shortcode_message').html('Modules could not be fetched!');
             }
         );
+}
+
+function preview_records(records){
+    if (records.length>0){
+        let x = '';
+        records.forEach(e => {
+            let y = '<tr>';
+                e.values.forEach(f => {
+                    y += `<td>${f.name}:${f.value}</td>`
+                });
+                y += '</tr>';
+
+                x += y;
+        });
+
+        $('#tboxyz').html(x);
+    }else{
+        $('#tboxyz').html('no records found!');
+    }
 }
     
 //--- jQuery No Conflict

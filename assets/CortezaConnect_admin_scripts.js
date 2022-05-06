@@ -154,6 +154,7 @@ function refresh_selection(){
     fetch_namespaces.then(
         function(response){
             console.log(response);
+            add_namespaces_to_select(response.response.response.set);
         },
         function(e){
             console.log('Error');
@@ -163,6 +164,12 @@ function refresh_selection(){
     );
  }
 
+    //Add namespaces to select element
+    function add_namespaces_to_select(namespaces){
+        namespaces.forEach(e => {
+            console.log(e);
+        });
+    }
 
  
     

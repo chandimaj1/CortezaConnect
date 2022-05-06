@@ -181,13 +181,16 @@ function refresh_selection(){
             $('#cc_select_namespace')
             .html('<option value="false" selected>Namespaces not found!</option>');
         }
+
+
+        $('body').on('change', '#cc_select_namespace', function(){
+            get_modules()
+        });
     }
 
         //Set modules
-        function set_modules(){
-            $('#cc_select_namespace').off().on('change', function (){
+        function get_modules(){
                 console.log($(this).val());
-            });
         }
 
  

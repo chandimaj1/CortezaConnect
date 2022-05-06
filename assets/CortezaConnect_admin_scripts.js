@@ -191,6 +191,7 @@ function add_namespaces_to_select(namespaces){
 //Set modules
 function get_modules(){
         let namespace = $('#cc_select_namespace').val();
+        let endpoint = "/api/compose/namespace/"+namespace+"/modules/";
 
         let fetch_modules = new Promise(function(resolve, reject) {
             $.ajax({     
@@ -201,7 +202,7 @@ function get_modules(){
                 data: JSON.stringify({
                     data:{
                         method: "GET",
-                        endpoint: "/api/compose/namespace/"+namespace+"/modules/"
+                        endpoint: endpoint
                     }
                 }),
                 success: function(response)

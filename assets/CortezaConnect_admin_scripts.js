@@ -295,8 +295,13 @@ function preview_shortcode(){
             cc_type:$('#cc_select_type').val()
         }
 
+        get_records(shortcode_info);
+    });
+}
 
-        let endpoint = "/api/compose/namespace/"
+
+function get_records(shortcode_info){
+    let endpoint = "/api/compose/namespace/"
         +shortcode_info.cc_namespace_id+"/module/"
         +shortcode_info.cc_module_id+"/record/";
 
@@ -326,7 +331,7 @@ function preview_shortcode(){
         fetch_records.then(
             function(response){
                 console.log(response);
-                preview_records(response.response.response.set);
+                //preview_records(response.response.response.set);
             },
             function(e){
                 console.log('Error');
@@ -334,10 +339,4 @@ function preview_shortcode(){
                 $('#shortcode_message').html('Modules could not be fetched!');
             }
         );
-    });
-}
-
-
-function preview_records(records){
-    
 }

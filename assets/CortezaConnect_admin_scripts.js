@@ -12,6 +12,7 @@
         });
 
         plugin_settings(); // Plugin settings
+        refresh_selection(); // Refresh Shortcode selection
     })
 
 
@@ -114,7 +115,51 @@
  }
 
 
+
+ /**
+  *  Refresh Selections
+  */
+function refresh_selection(){
+    $('#refresh_selection').on('click', function(){
+        console.log('Getting namespaces...');
+        get_namespaces();
+    });
+ }
  
+ //Get namespaces
+ function get_namespaces(){
+    let fetch_namespaces = new Promise(function(resolve, reject) {
+        $.ajax({     
+            url: '/wp-json/corteza_connect/v1/curl/',
+            method: "POST",
+            data: {
+                data:{
+                    method: "GET",
+                    endpoint: "/api/compose/namespace/"
+                }
+            },
+            success: function(response)
+            { 
+                resolve(response);
+            },
+    
+            error: function(e)
+            {
+                reject(e);
+            }
+        });
+    });
+    verify_settings.then(
+        function(response){
+            console.log(response);
+        },
+        function(e){
+            console.log('Error');
+            console.log(e);
+            $('#shortcode_message').html('Namespaces could not be fetched!');
+        }
+    );
+ }
 
 
  

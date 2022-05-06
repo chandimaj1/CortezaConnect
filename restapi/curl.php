@@ -12,7 +12,6 @@ $data = $params["data"];
 
 var_dump($data);
 
-$token = $data["cc_token"];
 $endpoint = $data["endpoint"];
 $method = $data["method"];
 $data = $data["data"];

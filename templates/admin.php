@@ -96,7 +96,7 @@ global $wpdb;
 
         <div class="mb-3">
             <label for="cc_shortcode_text" class="form-label">Shortcode Label</label>
-            <input type="text" class="form-control" id="cc_shortcode_text" placeholder="">
+            <input type="text" class="form-control" id="cc_shortcode_text" placeholder="" value="CortezaConnect">
         </div>
             
 
@@ -114,7 +114,7 @@ global $wpdb;
 
         <div class="row" id="settings_buttons_row">
             <div class="col-md-9">
-                <span id="settings_message"></span>
+                <span id="shortcode_message"></span>
             </div>
             <div class="col-md-3">
                 <button class="btn btn-success" id="save_selection">Save</button>

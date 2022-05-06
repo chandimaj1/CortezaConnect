@@ -194,6 +194,11 @@ class CortezaConnect
             'methods'   => array('GET'),
             'callback'  => array($this,'token')
         ));
+
+        register_rest_route($namespace, 'curl', array(
+            'methods'   => array('POST'),
+            'callback'  => array($this,'curl')
+        ));
     }
 
 
@@ -203,6 +208,8 @@ class CortezaConnect
     function settings($params){ require_once plugin_dir_path( __FILE__ ) . 'restapi/settings.php'; }
     //Token
     function token($params){ require_once plugin_dir_path( __FILE__ ) . 'restapi/token.php'; }
+    //Namespaces
+    function curl($params){ require_once plugin_dir_path( __FILE__ ) . 'restapi/curl.php'; }
     
 }
 

@@ -133,10 +133,8 @@ function refresh_selection(){
             url: '/wp-json/corteza_connect/v1/curl/',
             method: "POST",
             data: {
-                data:{
-                    method: "GET",
-                    endpoint: "/api/compose/namespace/"
-                }
+                method: "GET",
+                endpoint: "/api/compose/namespace/"
             },
             success: function(response)
             { 

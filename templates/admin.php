@@ -85,6 +85,36 @@ global $wpdb;
 </div>
 
 
+<div class="container-fluid stripe" style="margin-top:50px">
+    <h4>Shortcode Selection</h4>
+    <hr>
+    <form action="" method="post" name="pluggin_settings_form">
+        <div id="settings_row">
+            <select id="cc_select_namespace" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Loading...</option>
+            </select>
+            <select id="cc_select_module" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Loading...</option>
+            </select>
+            <select id="cc_select_type" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option value="Show Information">Show information</option>
+                <option value="Collect Information">Collect information</option>
+            </select>
+        </div>
+
+        <div class="row" id="settings_buttons_row">
+            <div class="col-md-9">
+                <span id="settings_message"></span>
+            </div>
+            <div class="col-md-3">
+            <button class="btn btn-success" id="refresh_selection">Refresh</button>
+                <button class="btn btn-success" id="save_selection">Save</button>
+            </div>
+        </div> 
+    </form>
+</div>
+
+
 
 
 

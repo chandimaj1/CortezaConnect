@@ -14,7 +14,7 @@ $endpoint = $params["endpoint"];
 $method = $params["method"];
 $data = $dparams["data"];
 
-var_dump($params);
+//var_dump($params);
 
 
 //Getting settings from database

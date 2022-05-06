@@ -23,7 +23,7 @@ $result = $wpdb->get_results( $sql );
 $result = $result[0];
 
 $instance = $result->cc_instance_url;
-$basic_auth = 'Authorization: Bearer '.$result->cc_instance_url;
+$basic_auth = 'Authorization: Bearer '.$result->cc_token;
 
 echo ($basic_auth);
 

@@ -343,7 +343,7 @@ function preview_records(records){
         records.forEach(e => {
             let y = '<tr>';
                 e.values.forEach(f => {
-                    y += `<td>${f.name}:${f.value}</td>`
+                    y += `<td>${f.value}</td>`
                 });
                 y += '</tr>';
 

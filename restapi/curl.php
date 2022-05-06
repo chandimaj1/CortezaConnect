@@ -8,11 +8,13 @@ if (!isset($wpdb)){
 
 //Params
 $params = $params->get_json_params();
-$data = $params["data"];
+$params = $params["data"];
 
-$endpoint = $data["endpoint"];
-$method = $data["method"];
-$data = $data["data"];
+$endpoint = $params["endpoint"];
+$method = $params["method"];
+$data = $dparams["data"];
+
+var_dump($params);
 
 
 //Getting settings from database

@@ -288,19 +288,19 @@ function preview_shortcode(){
     $('#refresh_shortcode').on('click', function(){
         console.log('Previewing shortcode...');
 
-        let shortcode_info = {
-            cc_shortcode_label: $('#cc_shortcode_text').val(),
-            cc_namespace_id: $('#cc_select_namespace').val(),
-            cc_module_id: $('#cc_select_module').val(),
-            cc_type: $('#cc_select_type').val()
-        };
-
-        get_records(shortcode_info);
+        get_records();
     });
 }
 
 
-function get_records(shortcode_info){
+function get_records(){
+    let shortcode_info = {
+        cc_shortcode_label: $('#cc_shortcode_text').val(),
+        cc_namespace_id: $('#cc_select_namespace').val(),
+        cc_module_id: $('#cc_select_module').val(),
+        cc_type: $('#cc_select_type').val()
+    };
+    
     let endpoint = "/api/compose/namespace/"
         +shortcode_info.cc_namespace_id+"/module/"
         +shortcode_info.cc_module_id+"/record/";

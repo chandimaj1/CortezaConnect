@@ -149,7 +149,7 @@ function refresh_selection(){
             }
         });
     });
-    verify_settings.then(
+    fetch_namespaces.then(
         function(response){
             console.log(response);
         },

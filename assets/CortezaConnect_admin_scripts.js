@@ -274,17 +274,13 @@ function save_shortcode(params){
     //
 }
  
-    
-//--- jQuery No Conflict
-})(jQuery);
 
 
 /**
  * Preview shortcode
  */
 
-function preview_shortcode(){
-    
+ function preview_shortcode(){ 
     $('#refresh_shortcode').on('click', function(){
         console.log('Previewing shortcode...');
 
@@ -300,7 +296,7 @@ function get_records(){
         cc_module_id: $('#cc_select_module').val(),
         cc_type: $('#cc_select_type').val()
     };
-    
+
     let endpoint = "/api/compose/namespace/"
         +shortcode_info.cc_namespace_id+"/module/"
         +shortcode_info.cc_module_id+"/record/";
@@ -340,3 +336,8 @@ function get_records(){
             }
         );
 }
+    
+//--- jQuery No Conflict
+})(jQuery);
+
+

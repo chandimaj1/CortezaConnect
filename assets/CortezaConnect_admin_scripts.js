@@ -166,9 +166,16 @@ function refresh_selection(){
 
     //Add namespaces to select element
     function add_namespaces_to_select(namespaces){
-        namespaces.forEach(e => {
-            console.log(e);
-        });
+        if (namespaces.length>0){
+            let x = '';
+            namespaces.forEach(e => {
+                x += `<option value='${e.namespaceID}'>${e.name}</option>`
+            });
+
+            $('#cc_select_namespace')
+            .html('')
+            .append(x);
+        }
     }
 
  

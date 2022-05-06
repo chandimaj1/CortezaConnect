@@ -14,6 +14,7 @@
         plugin_settings(); // Plugin settings
         refresh_selection(); // Refresh Shortcode selection
         add_shortcodes(); // Add shortcodes
+        preview_shortcode();
     })
 
 
@@ -260,12 +261,83 @@ function add_shortcodes(){
         console.log('Adding shortcode...');
 
         let shortcode_info = {
-            label
+            cc_shortcode_label:$('#cc_shortcode_text').val(),
+            cc_namespace_id:$('#cc_select_namespace').val(),
+            cc_module_id:$('#cc_select_module').val(),
+            cc_type:$('#cc_select_type').val(),
         }
-        add_shortcode();
+        save_shortcode(shortcode_info);
     });
+}
+
+function save_shortcode(params){
+    //
 }
  
     
 //--- jQuery No Conflict
 })(jQuery);
+
+
+/**
+ * Preview shortcode
+ */
+
+function preview_shortcode(){
+    
+    $('#refresh_shortcode').on('click', function(){
+        console.log('Previewing shortcode...');
+
+        let shortcode_info = {
+            cc_shortcode_label:$('#cc_shortcode_text').val(),
+            cc_namespace_id:$('#cc_select_namespace').val(),
+            cc_module_id:$('#cc_select_module').val(),
+            cc_type:$('#cc_select_type').val()
+        }
+
+
+        let endpoint = "/api/compose/namespace/"
+        +shortcode_info.cc_namespace_id+"/module/"
+        +shortcode_info.cc_module_id+"/record/";
+
+        let fetch_records = new Promise(function(resolve, reject) {
+            $.ajax({     
+                url: '/wp-json/corteza_connect/v1/curl/',
+                method: "POST",
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    data:{
+                        method: "GET",
+                        endpoint: endpoint
+                    }
+                }),
+                success: function(response)
+                { 
+                    resolve(response);
+                },
+        
+                error: function(e)
+                {
+                    reject(e);
+                }
+            });
+        });
+        fetch_records.then(
+            function(response){
+                console.log(response);
+                preview_records(response.response.response.set);
+            },
+            function(e){
+                console.log('Error');
+                console.log(e);
+                $('#shortcode_message').html('Modules could not be fetched!');
+            }
+        );
+    });
+}
+
+
+function preview_records(records){
+    
+}

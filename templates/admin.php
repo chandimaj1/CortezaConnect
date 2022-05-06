@@ -124,6 +124,18 @@ global $wpdb;
 </div>
 
 
+<div class="container-fluid stripe" style="margin-top:50px">
+    <h4>Shortcode Preview
+        <button class="btn btn-success" id="refresh_shortcode">Refresh</button>
+    </h4>
+    <hr>
+    <form action="" method="post" name="pluggin_settings_form">
+        <div id="settings_row" id="preview_placeholder">
+
+        </div>
+    </form>
+</div>
+
 
 
 

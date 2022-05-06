@@ -127,7 +127,7 @@ function refresh_selection(){
  }
  
  //Get namespaces
- function get_namespaces(){
+function get_namespaces(){
     let fetch_namespaces = new Promise(function(resolve, reject) {
         $.ajax({     
             url: '/wp-json/corteza_connect/v1/curl/',
@@ -164,33 +164,87 @@ function refresh_selection(){
     );
  }
 
-    //Add namespaces to select element
-    function add_namespaces_to_select(namespaces){
-        if (namespaces.length>0){
-            let x = '';
-            namespaces.forEach(e => {
-                x += `<option value='${e.namespaceID}'>${e.name}</option>`
-            });
-
-            $('#cc_select_namespace')
-            .html('')
-            .append(x);
-        }else{
-            $('#cc_select_namespace')
-            .html('<option value="false" selected>Namespaces not found!</option>');
-        }
-
-
-        $('body').on('change', '#cc_select_namespace', function(){
-            get_modules()
+//Add namespaces to select element
+function add_namespaces_to_select(namespaces){
+    if (namespaces.length>0){
+        let x = '';
+        namespaces.forEach(e => {
+            x += `<option value='${e.namespaceID}'>${e.name}</option>`
         });
+
+        $('#cc_select_namespace')
+        .html('<option value="false" >Select Namespace</option>')
+        .append(x);
+    }else{
+        $('#cc_select_namespace')
+        .html('<option value="false" >Select Namespace</option>')
+        $('#shortcode_message').html('Namespaces not found!');
     }
 
-        //Set modules
-        function get_modules(){
-                console.log($('#cc_select_namespace').val());
-        }
 
+    //Get modules
+    $('body').off().on('change', '#cc_select_namespace', function(){
+        get_modules()
+    });
+}
+
+//Set modules
+function get_modules(){
+        let namespace = $('#cc_select_namespace').val();
+
+        let fetch_modules = new Promise(function(resolve, reject) {
+            $.ajax({     
+                url: '/wp-json/corteza_connect/v1/curl/',
+                method: "POST",
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    data:{
+                        method: "GET",
+                        endpoint: "/api/compose/namespace/"+namespace+"/modules/"
+                    }
+                }),
+                success: function(response)
+                { 
+                    resolve(response);
+                },
+        
+                error: function(e)
+                {
+                    reject(e);
+                }
+            });
+        });
+        fetch_modules.then(
+            function(response){
+                console.log(response);
+                add_modules_to_select(response.response.response.set);
+            },
+            function(e){
+                console.log('Error');
+                console.log(e);
+                $('#shortcode_message').html('Modules could not be fetched!');
+            }
+        );
+}
+        
+//Add modules to select element
+function add_modules_to_select(modules){
+    if (modules.length>0){
+        let x = '';
+        modules.forEach(e => {
+            x += `<option value='${e.moduleID}'>${e.name}</option>`
+        });
+
+        $('#cc_select_module')
+        .html('<option value="false" >Select Module</option>')
+        .append(x);
+    }else{
+        $('#cc_select_module')
+        .html('<option value="false" >Select Module</option>')
+        $('#shortcode_message').html('Modules not found!');
+    }
+}
  
     
 //--- jQuery No Conflict

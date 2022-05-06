@@ -175,8 +175,6 @@ function refresh_selection(){
             $('#cc_select_namespace')
             .html('')
             .append(x);
-            
-            set_modules();
         }else{
             $('#cc_select_namespace')
             .html('<option value="false" selected>Namespaces not found!</option>');
@@ -190,7 +188,7 @@ function refresh_selection(){
 
         //Set modules
         function get_modules(){
-                console.log($(this).val());
+                console.log($('#cc_select_namespace').val());
         }
 
  

@@ -50,7 +50,7 @@ $msg = "Error getting token";
 $status = true;
 $response = json_decode($response);
 
-if( isset($response->set) ){
+if( isset($response->response) && !empty($response->response) ){
     $msg = "Information recieved.";
 }else{
     $msg = "Information not recieved.";
